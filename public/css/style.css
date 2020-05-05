@@ -1,0 +1,66 @@
+.sph-nav-row{
+    width : 100% !important;
+}
+
+.sph-search{
+    width : 40%;
+}
+
+.sph-location{
+    cursor: pointer;
+}
+
+.sph-orange{
+    color : #E95420 !important;
+}
+
+.sph-widget {
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://i.stack.imgur.com/FhHRx.gif') 
+                99% / 7%
+                no-repeat;
+}
+
+/* Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+    .sph-search{
+        width : 80%;
+    }
+
+    .sph-headline{
+        font-size: 35px;
+    }
+
+    .sph-logo-footer{
+        padding-bottom: 4%;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .sph-search{
+        width : 60%;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .sph-search{
+        width : 60%;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {}
+
+@keyframes smoothScroll {
+	0% {
+		transform: translateY(-40px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}

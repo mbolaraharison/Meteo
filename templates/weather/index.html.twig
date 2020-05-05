@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+   Météo NoName
+{% endblock %}
+
+{% block body %}
+   <div class="jumbotron pb-2 pt-4 sph-jumbo-1">
+      <h1 class="display-5 text-center sph-headline">Bienvenue sur la page Météo</h1>
+      <hr class="my-4">
+      <div class="form-group d-flex justify-content-center ui-widget sph-div-search">
+         <input class="form-control form-control-lg sph-search" type="text" placeholder="Enter a city" id="tags" value="{% if weather %}{{ weather.name }},{{ weather.country }}{% else %}None{% endif %}">
+         <img id="location_id" class="mt-1 sph-location" src="/assets/location-logo.png" alt="" width="35" height="35">
+      </div>
+   </div>
+   <div class="jumbotron pb-2 pt-4 mt-n2 sph-jumbo-2">
+      <div class="row">
+         <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center">
+            <div class="card border-primary mb-3 w-100 p-3">
+               <div class="card-header">Température</div>
+               <div class="card-body">
+                  <div class="card-title">
+                     <div class="row">
+                        <div class="col-6 col-lg-9 col-md-6 col-sm-6 d-flex align-items-center">
+                           <h2 class="sph-orange">
+                           {% if weather %}
+                              {{ weather.temperature }}°C
+                           {% else %}
+                              None
+                           {% endif %}
+                           </h2>
+                        </div>
+                        <div class="col-6 col-lg-3 col-md-6 col-sm-6 d-flex align-items-center pl-0">
+                              <div class="page-item border-right text-center">
+                                 {% if weather %}
+                                    min {{ weather.temp_min }}°C
+                                 {% else %}
+                                    None
+                                 {% endif %}
+                              </div>
+                              <div class="page-item border-left text-center">
+                                 {% if weather %}
+                                    max {{ weather.temp_max }}°C
+                                 {% else %}
+                                    None
+                                 {% endif %}
+                              </div>
+                        </div>
+                     </div>
+                  </div>                  
+                  <ul class="list-group">
+                     <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Précipitations
+                        <span>
+                           {% if weather %}
+                              {{ weather.precipitations }} %
+                           {% else %}
+                              None
+                           {% endif %}
+                        </span>
+                     </li>
+                     <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Humidité
+                        <span>
+                           {% if weather %}
+                              {{ weather.humidite }} %
+                           {% else %}
+                              None
+                           {% endif %}
+                        </span>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center">
+            <div class="card border-primary mb-3 w-100 p-3">
+               <div class="card-header">Vent</div>
+               <div class="card-body">
+                  <h2 class="card-title pb-2 sph-orange">
+                  {% if weather %}
+                     {{ weather.vent }} km/h
+                  {% else %}
+                     None
+                  {% endif %}
+                  </h2>
+                  <ul class="list-group">
+                     <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Pression atmosphérique
+                        <span>
+                           {% if weather %}
+                              {{ weather.pression }} hPa
+                           {% else %}
+                              None
+                           {% endif %}
+                        </span>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+{% endblock %}
+{% block javascripts %}
+   <script type="text/javascript" src="/js/cities.json"></script>
+   <script src="/js/hint.js"></script>
+{% endblock %}
